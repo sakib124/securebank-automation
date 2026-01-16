@@ -60,12 +60,19 @@ Feature: Filter transactions
     When I click the "Reset" button
     Then all filter fields should be reset to their default values
 
-  @positive
+  @positive 
   Scenario: Pagination of Transactions
     Given I am logged in as "jane.smith" with password "welcome_456"
+    And I navigate to the transfer page
+    When I select "checking" as the from account
+    And I select "savings" as the to account
+    And I enter amount "150.00"
+    And I enter description "Monthly savings"
+    And I submit the transfer
+    Then I should see a confirmation modal
+    When I confirm the transfer
+    Then I should see success message "Transfer of $150.00 completed successfully!"
     And I navigate to the transactions page
     And there are more transactions than fit on one page
-    When I click the Next page button
-    Then the next set of transactions should be displayed
-    When I click the Previous page button
-    Then the previous set of transactions should be displayed
+    Then the next set of transactions should be displayed after clicking the next button
+    

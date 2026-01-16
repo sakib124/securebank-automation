@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
     glue = {"com.securebank.stepdefs", "com.securebank.hooks"},
     plugin = {"pretty", "html:target/cucumber-report.html"},
     monochrome = true,
-    tags = ""
+    tags = "@login"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

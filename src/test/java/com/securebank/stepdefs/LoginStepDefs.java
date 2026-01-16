@@ -3,6 +3,7 @@ package com.securebank.stepdefs;
 import com.securebank.pages.LoginPage;
 import com.securebank.pages.DashboardPage;
 import com.securebank.utils.DriverManager;
+import com.securebank.utils.Config;
 import io.cucumber.java.en.*;
 import org.testng.Assert;
 
@@ -12,7 +13,7 @@ public class LoginStepDefs {
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
-        loginPage.driver.get("http://localhost:8080/index.html");
+        loginPage.driver.get(Config.BASE_URL);
     }
 
     @When("I login with username {string} and password {string}")

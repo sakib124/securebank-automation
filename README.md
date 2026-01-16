@@ -10,6 +10,7 @@ SecureBankAutomation is a robust Selenium and Cucumber-based test automation fra
 - Positive and negative scenario tagging for targeted test runs
 - Parameterized tests using scenario outlines and examples
 - Robust error handling and debug output for troubleshooting
+- Database validation scenarios are included with proper setup and teardown hooks
 
 ## Project Structure
 ```
@@ -25,13 +26,13 @@ SecureBankAutomation/
 │       │       └── securebank/
 │       │           ├── pages/         # Page Object classes
 │       │           ├── stepdefs/      # Step Definitions
-│       │           ├── utils/         # Utilities (e.g., DriverManager)
+│       │           ├── utils/         # Utilities (e.g., DriverManager, DatabaseHelper)
 │       │           ├── hooks/         # Cucumber hooks
 │       │           └── runner/        # Test runner
 │       └── resources/
 │           └── features/              # Cucumber feature files
-└── target/
-    └── ...                            # Build and report outputs
+├── target/                            # Build and report outputs
+└── test-output/                       # TestNG and Cucumber HTML reports
 ```
 
 ## Getting Started
@@ -71,16 +72,28 @@ Once the application is running locally, you can proceed with the automation ste
   ```
   mvn test -Dcucumber.filter.tags="@positive"
   ```
-- Test reports will be generated in the `target/` directory.
+- To run only database scenarios:
+  ```
+  mvn test -Dcucumber.filter.tags="@database"
+  ```
+- Test reports will be generated in the `target/` and `test-output/` directories.
+
+## Tagging and Hooks
+- Database connection hooks (`@Before`/`@After`) are only run for scenarios tagged with `@database`
+- To ensure database setup/teardown, tag your scenarios appropriately in the feature files.
+- If you want hooks to run for all scenarios, remove the tag filter from the hook annotations in `DatabaseStepDefs.java`.
 
 ## Writing Tests
 - Add new feature files in `src/test/resources/features/`
 - Implement step definitions in `src/test/java/com/securebank/stepdefs/`
 - Add new page objects in `src/test/java/com/securebank/pages/`
 
-## Debugging
+## Debugging & Troubleshooting
 - Debug output is printed to the console for key actions and failures.
-- Use scenario tags (`@positive`, `@negative`) to filter and troubleshoot tests.
+- Use scenario tags (`@positive`, `@negative`, `@database`) to filter and troubleshoot tests.
+- If you see `NullPointerException` for WebDriver, ensure page objects are created inside steps, not as class fields.
+- For pagination tests, ensure enough transactions exist to trigger multiple pages.
+- If a locator is not found, verify the selector in the page object matches the current UI.
 
 ## Contributing
 Pull requests are welcome! Please follow the existing code style and add tests for new features.

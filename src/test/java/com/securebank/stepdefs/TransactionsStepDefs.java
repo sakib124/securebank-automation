@@ -132,7 +132,7 @@ public class TransactionsStepDefs {
         transactionsPage.clickNextPage();
     }
 
-    @Then("the next set of transactions should be displayed")
+    @Then("the next set of transactions should be displayed after clicking the next button")
     public void the_next_set_of_transactions_should_be_displayed() {
         Assert.assertTrue(transactionsPage.isNextPageDisplayed());
     }
@@ -140,11 +140,6 @@ public class TransactionsStepDefs {
     @When("I click the Previous page button")
     public void i_click_the_previous_page_button() {
         transactionsPage.clickPrevPage();
-    }
-
-    @Then("the previous set of transactions should be displayed")
-    public void the_previous_set_of_transactions_should_be_displayed() {
-        Assert.assertTrue(transactionsPage.isPreviousPageDisplayed());
     }
 
     @Then("the Previous and Next page buttons should be disabled")

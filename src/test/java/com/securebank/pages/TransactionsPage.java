@@ -220,19 +220,14 @@ public class TransactionsPage extends BasePage {
 	}
 
 	public boolean isNextPageDisplayed() {
-		// Example: check that page info or table content changes after clicking next
+		// Example: check that page info or table content changes after clicking next and previous
 		String before = getPageInfo();
 		clickNextPage();
 		String after = getPageInfo();
-		return !before.equals(after);
-	}
+		if (!before.equals(after))
+			clickPrevPage();
 
-	public boolean isPreviousPageDisplayed() {
-		// Example: check that page info or table content changes after clicking
-		// previous
-		String before = getPageInfo();
-		clickPrevPage();
-		String after = getPageInfo();
+		before = getPageInfo();
 		return !before.equals(after);
 	}
 

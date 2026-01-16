@@ -1,5 +1,6 @@
 package com.securebank.pages;
 
+import com.securebank.utils.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -94,7 +95,7 @@ public class DashboardPage extends BasePage {
     }
 
     public void login(String username, String password) {
-        driver.get("http://localhost:8080/index.html");
+        driver.get(Config.BASE_URL);
         sendKeys(By.id("username"), username);
         sendKeys(By.id("password"), password);
         click(By.id("login-button"));

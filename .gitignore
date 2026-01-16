@@ -1,0 +1,35 @@
+# Maven build output
+/target/
+
+# Test output
+/test-output/
+
+# Eclipse/IDEA project files
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and reports
+*.log
+*.tmp
+*.swp
+
+# Cucumber and TestNG reports
+*.html
+*.xml
+*.png
+
+# Ignore generated test classes
+**/test-classes/
+
+# Ignore any local configuration
+local.properties
+
+# Ignore node_modules if any JS tools are used
+node_modules/

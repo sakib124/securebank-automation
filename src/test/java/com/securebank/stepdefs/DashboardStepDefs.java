@@ -4,12 +4,14 @@ import io.cucumber.java.en.*;
 import org.testng.Assert;
 import com.securebank.pages.DashboardPage;
 import com.securebank.utils.DriverManager;
+// import com.securebank.utils.DatabaseHelper; // For future DB steps
 
 public class DashboardStepDefs {
     private DashboardPage dashboardPage = new DashboardPage(DriverManager.getDriver());
 
     @Given("I am logged in as {string} with password {string}")
     public void i_am_logged_in(String username, String password) {
+        // Uses DashboardPage.login, which uses BasePage methods
         dashboardPage.login(username, password);
     }
 
