@@ -1,4 +1,6 @@
 # SecureBankAutomation
+<img width="1449" height="906" alt="securebank" src="https://github.com/user-attachments/assets/acf7777f-0a0e-4a68-b231-d6d44827e35c" />
+<img width="1089" height="194" alt="securebank-automation-results" src="https://github.com/user-attachments/assets/acf79d49-3ab8-4ba3-8a37-166060921598" />
 
 ## Overview
 SecureBankAutomation is a robust Selenium and Cucumber-based test automation framework for the SecureBank web application. It follows the Page Object Model (POM) design pattern for maintainability and scalability, and uses TestNG for assertions and reporting.
